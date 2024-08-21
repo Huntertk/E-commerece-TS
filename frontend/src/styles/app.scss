@@ -38,6 +38,8 @@
   
   @import "admin-styles/mixin";
   
+
+  @import '_home.scss';
   @import "admin-styles/dashboard";
   @import "admin-styles/products";
   @import "admin-styles/chart";
