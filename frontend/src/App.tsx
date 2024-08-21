@@ -1,8 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Loader from './components/loader';
-import Header from './components/header';
-
 
 
 const Home = lazy(() => import('./pages/home'));
@@ -10,6 +8,7 @@ const Search = lazy(() => import('./pages/search'));
 const Cart = lazy(() => import('./pages/cart'));
 
 
+//Admin Imports
 const Dashboard = lazy(() => import("./pages/admin/dashboard"));
 const Products = lazy(() => import("./pages/admin/products"));
 const Customers = lazy(() => import("./pages/admin/customers"));
@@ -31,16 +30,15 @@ const TransactionManagement = lazy(
 const App = () => {
   return (
     <Router>
-      <Header />
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/search' element={<Search />} />
+          <Route path='/cart' element={<Cart />} />
 
 
 
-          {/*Admin */}
+          {/* Admin Route */}
           <Route
             // element={
             //   <ProtectedRoute isAuthenticated={true} adminRoute={true} isAdmin={true} />
@@ -50,10 +48,12 @@ const App = () => {
             <Route path="/admin/product" element={<Products />} />
             <Route path="/admin/customer" element={<Customers />} />
             <Route path="/admin/transaction" element={<Transaction />} />
+
             {/* Charts */}
             <Route path="/admin/chart/bar" element={<Barcharts />} />
             <Route path="/admin/chart/pie" element={<Piecharts />} />
             <Route path="/admin/chart/line" element={<Linecharts />} />
+
             {/* Apps */}
             <Route path="/admin/app/coupon" element={<Coupon />} />
             <Route path="/admin/app/stopwatch" element={<Stopwatch />} />
