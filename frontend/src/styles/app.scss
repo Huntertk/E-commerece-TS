@@ -42,6 +42,7 @@
   @import '_home.scss';
   @import '_cart.scss';
   @import '_shipping.scss';
+  @import '_login.scss';
   @import "admin-styles/dashboard";
   @import "admin-styles/products";
   @import "admin-styles/chart";
@@ -88,7 +89,11 @@
 
   }
 
-
+.heading{
+  @include heading;
+  margin: 1rem 0;
+  text-align: center;
+}
 
 
 
