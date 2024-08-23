@@ -3,6 +3,7 @@ import expres from 'express';
 //Importing Routes
 import userRouter from './routes/user.js'
 import { connectDB } from './utils/features.js';
+import { errorMiddleware } from './middlewares/error.js';
 
 
 //Express App Initialization
@@ -24,6 +25,12 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/user', userRouter)
 
+
+//error 
+app.use(errorMiddleware)
+
+
+//server listen
 app.listen(port, () => {
     console.log("Server is running on port", port);
     
