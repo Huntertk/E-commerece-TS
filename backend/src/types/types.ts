@@ -11,3 +11,11 @@ export interface INewUserRequestBody{
 } 
 
 export type ControllerType = (req: Request, res: Response, next: NextFunction) => Promise<void | Response<any, Record<string, any>>>
+
+
+export interface INewProductRequestBody{
+    name:string;
+    category:string;
+    price:number;
+    stock:number;
+}
