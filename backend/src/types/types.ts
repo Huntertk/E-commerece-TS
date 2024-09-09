@@ -19,3 +19,24 @@ export interface INewProductRequestBody{
     price:number;
     stock:number;
 }
+
+export type TypeSearchRequestQuery = {
+    search?:string;
+    price?:string;
+    category?:string;
+    sort?:string;
+    page?:string;
+    
+}
+
+
+export interface IBaseQuery {
+    name?:{
+        $regex:string;
+        $options:string;
+    };
+    price?: {
+        $let: number;
+    };
+    category?: string;
+}
